@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Instagram Growth Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ================= CSS ================= -->
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#0b0b12;
+  color:#fff;
+}
+
+/* HERO */
+.hero{
+  padding:90px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#7f00ff,#ff006a);
+}
+.hero h1{font-size:42px;margin:10px 0}
+.hero p{opacity:.9;font-size:18px}
+
+/* SECTIONS */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+h2{text-align:center;margin-bottom:30px}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:#151522;
+  padding:28px;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(255,0,255,.15);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px)}
+.card h3{color:#ff77ff}
+.price{font-size:36px;margin:12px 0}
+
+/* BUTTON */
+.btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff00cc,#3333ff);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+/* PAYMENT */
+.pay-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+}
+.pay-box img{
+  width:100%;
+  border-radius:18px;
+  border:3px solid #ff006a;
+}
+
+/* FORM */
+input,select{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:12px;
+  border:none;
+  background:#1e1e2f;
+  color:#fff;
+  font-size:15px;
+}
+
+/* SUCCESS */
+.success{
+  display:none;
+  background:#101018;
+  padding:30px;
+  border-radius:18px;
+  text-align:center;
+  margin-top:15px;
+  animation:fade .5s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(.95)}
+  to{opacity:1}
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:25px;
+  background:#08080c;
+  opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <h1>Instagram Growth Made Simple 🚀</h1>
+  <p>14.2K+ Followers | Real Skills | No Fake Followers</p>
+</div>
+
+<!-- ================= PLANS ================= -->
+<div class="section">
+  <h2>🔥 Affordable Plans</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Quick Help</h3>
+      <div class="price">₹29</div>
+      <p>✔ Reel idea<br>✔ Caption + hashtags</p>
+      <button class="btn" onclick="selectPlan('₹29 - Quick Help')">Choose</button>
+    </div>
+
+    <div class="card">
+      <h3>Growth Pack</h3>
+      <div class="price">₹99</div>
+      <p>✔ 5 Reel ideas<br>✔ Posting time<br>✔ Growth tips</p>
+      <button class="btn" onclick="selectPlan('₹99 - Growth Pack')">Choose</button>
+    </div>
+
+    <div class="card">
+      <h3>Premium</h3>
+      <div class="price">₹999</div>
+      <p>✔ 1 Month editing<br>✔ Strategy<br>✔ Personal support</p>
+      <button class="btn" onclick="selectPlan('₹999 - Premium')">Choose</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= PAYMENT ================= -->
+<div class="section">
+  <h2>💳 Pay via UPI</h2>
+  <p style="text-align:center">Scan QR → Pay → Enter UTR</p>
+
+  <div class="pay-box">
+    <div>
+      <!-- apna QR image yahan lagao -->
+      <img src="your-qr.png" alt="UPI QR">
+      <p><b>UPI Name:</b> Your Name</p>
+    </div>
+
+    <div>
+      <input id="name" placeholder="Your Name">
+      <input id="insta" placeholder="Instagram ID">
+      <select id="plan">
+        <option value="">Select Plan</option>
+        <option>₹29 - Quick Help</option>
+        <option>₹99 - Growth Pack</option>
+        <option>₹999 - Premium</option>
+      </select>
+      <input id="utr" placeholder="Enter UTR Number">
+
+      <button class="btn" onclick="submitPayment()">Submit Payment</button>
+
+      <div class="success" id="successBox">
+        <h2>✅ Submitted Successfully</h2>
+        <p>Payment details saved.</p>
+        <p>Verification ke baad aapko DM / WhatsApp kiya jayega ❤️</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Instagram Growth Hub | Honest • Skill Based
+</div>
+
+<!-- ================= JS ================= -->
+<script>
+function selectPlan(plan){
+  document.getElementById("plan").value = plan;
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+}
+
+function submitPayment(){
+  const name = document.getElementById("name").value.trim();
+  const insta = document.getElementById("insta").value.trim();
+  const plan = document.getElementById("plan").value;
+  const utr = document.getElementById("utr").value.trim();
+
+  if(!name || !insta || !plan || utr.length < 6){
+    alert("Please fill all details correctly");
+    return;
+  }
+
+  // Save locally (backup)
+  const data = {name, insta, plan, utr, time:new Date().toLocaleString()};
+  localStorage.setItem("lastPayment", JSON.stringify(data));
+
+  document.getElementById("successBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
