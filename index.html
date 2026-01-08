@@ -15,7 +15,6 @@ background:#000;
 color:#fff;
 overflow-x:hidden;
 }
-
 img{max-width:100%}
 
 .gold{
@@ -28,7 +27,7 @@ color:transparent;
 position:fixed;
 top:0;left:0;right:0;
 padding:18px 40px;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.75);
 backdrop-filter:blur(10px);
 z-index:10;
 }
@@ -40,7 +39,7 @@ align-items:center;
 justify-content:center;
 text-align:center;
 position:relative;
-padding-top:100px;
+padding-top:120px;
 }
 
 .hero::before{
@@ -48,12 +47,9 @@ content:"";
 position:absolute;
 width:500px;height:500px;
 background:url("images/glow.svg") center/contain no-repeat;
-top:-100px;left:-100px;
+top:-120px;left:-120px;
 opacity:.6;
 }
-
-.hero h1{font-size:56px;margin-bottom:10px}
-.hero p{opacity:.85;font-size:18px}
 
 .section{
 max-width:1200px;
@@ -68,12 +64,12 @@ gap:35px;
 }
 
 .card{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,215,0,.25);
-border-radius:24px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,215,0,.3);
+border-radius:26px;
 padding:35px;
 backdrop-filter:blur(15px);
-box-shadow:0 0 60px rgba(255,215,0,.15);
+box-shadow:0 0 60px rgba(255,215,0,.18);
 transition:.4s;
 }
 
@@ -86,11 +82,11 @@ box-shadow:0 0 90px rgba(255,215,0,.35);
 
 .btn{
 display:inline-block;
-padding:15px 30px;
+padding:15px 32px;
 border-radius:40px;
 background:linear-gradient(135deg,#FFD700,#B8860B);
 color:#000;
-font-weight:600;
+font-weight:700;
 text-decoration:none;
 border:none;
 cursor:pointer;
@@ -103,20 +99,30 @@ gap:30px;
 text-align:center;
 }
 
-.stat{
-font-size:38px;
-font-weight:700;
-}
+.stat{font-size:40px;font-weight:800}
 
 .fade{
 opacity:0;
 transform:translateY(40px);
 transition:1s ease;
 }
+.show{opacity:1;transform:none}
 
-.show{
-opacity:1;
-transform:none;
+input,select{
+width:100%;
+padding:15px;
+margin:10px 0;
+border-radius:14px;
+border:1px solid #333;
+background:#000;
+color:#fff;
+}
+
+.pay-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
 }
 
 .whatsapp{
@@ -127,9 +133,9 @@ background:#25D366;
 color:#000;
 padding:14px 22px;
 border-radius:40px;
-font-weight:700;
+font-weight:800;
 text-decoration:none;
-box-shadow:0 0 20px #25D366;
+box-shadow:0 0 25px #25D366;
 z-index:10;
 }
 
@@ -144,21 +150,28 @@ opacity:.7;
 
 <body>
 
+<!-- NAV -->
 <div class="nav">
 <img src="images/logo-gold.svg">
 </div>
 
-<a class="whatsapp" href="#">WhatsApp 💬</a>
+<!-- WHATSAPP BUTTON -->
+<a class="whatsapp"
+href="https://wa.me/917027984783?text=Hi%20I%20want%20Instagram%20growth%20help"
+target="_blank">
+WhatsApp 💬
+</a>
 
+<!-- HERO -->
 <section class="hero fade">
 <div>
 <h1 class="gold">Grow Like a Brand 👑</h1>
-<p>Premium Instagram growth for serious creators</p>
-<br>
+<p>Premium Instagram growth for serious creators</p><br>
 <a href="#plans" class="btn">View Plans</a>
 </div>
 </section>
 
+<!-- STATS -->
 <section class="section fade">
 <div class="stats">
 <div><div class="stat gold">14.2K+</div><p>Followers</p></div>
@@ -167,6 +180,7 @@ opacity:.7;
 </div>
 </section>
 
+<!-- PLANS -->
 <section id="plans" class="section fade">
 <h2 class="gold">Premium Plans</h2>
 <div class="cards">
@@ -175,32 +189,61 @@ opacity:.7;
 <h3>Starter</h3>
 <div class="price gold">₹29</div>
 <p>Reel ideas + caption guidance</p>
-<button class="btn">Get Started</button>
+<button class="btn" onclick="selectPlan('Starter ₹29')">Choose</button>
 </div>
 
 <div class="card">
 <h3>Growth</h3>
 <div class="price gold">₹99</div>
 <p>Growth strategy + content ideas</p>
-<button class="btn">Boost Now</button>
+<button class="btn" onclick="selectPlan('Growth ₹99')">Choose</button>
 </div>
 
 <div class="card">
 <h3>Elite</h3>
 <div class="price gold">₹999</div>
 <p>1 Month editing + personal support</p>
-<button class="btn">Go Elite</button>
+<button class="btn" onclick="selectPlan('Elite ₹999')">Choose</button>
 </div>
 
 </div>
 </section>
 
+<!-- PAYMENT + FORM -->
+<section class="section fade">
+<h2 class="gold">Secure UPI Payment</h2>
+
+<div class="pay-grid">
+
+<div>
+<img src="images/qr.png" alt="QR Code">
+<p>Scan QR & pay, then fill the form 👇</p>
+</div>
+
+<div class="card">
+<input id="name" placeholder="Your Name">
+<input id="insta" placeholder="Instagram ID">
+<select id="plan">
+<option>Select Plan</option>
+<option>Starter ₹29</option>
+<option>Growth ₹99</option>
+<option>Elite ₹999</option>
+</select>
+<input id="utr" placeholder="UTR Number">
+<button class="btn" onclick="submitForm()">Submit</button>
+<p id="msg"></p>
+</div>
+
+</div>
+</section>
+
+<!-- TRUST -->
 <section class="section fade">
 <h2 class="gold">Why Trust Growthly?</h2>
 <div class="cards">
 <div class="card"><img src="images/trust-gold.svg"><p>No Fake Followers</p></div>
 <div class="card"><img src="images/trust-gold.svg"><p>Skill Based Growth</p></div>
-<div class="card"><img src="images/trust-gold.svg"><p>Creator First Approach</p></div>
+<div class="card"><img src="images/trust-gold.svg"><p>Creator First Support</p></div>
 </div>
 </section>
 
@@ -217,6 +260,21 @@ el.classList.add('show');
 }
 });
 });
+
+function selectPlan(p){
+document.getElementById("plan").value=p;
+window.location.hash="payment";
+}
+
+function submitForm(){
+if(utr.value.length<6){
+msg.innerText="❌ Please enter valid UTR";
+msg.style.color="red";
+return;
+}
+msg.innerText="✅ Payment submitted. We will contact you soon!";
+msg.style.color="#FFD700";
+}
 </script>
 
 </body>
