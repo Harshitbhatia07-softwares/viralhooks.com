@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80">
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="70">
 <defs>
-<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0%" stop-color="#FFD700"></stop>
 <stop offset="100%" stop-color="#B8860B"></stop>
 </linearGradient>
 </defs>
-<rect width="300" height="80" rx="18" fill="#000"></rect>
-<text x="150" y="52" text-anchor="middle" font-size="30" fill="url(#gold)" font-family="Arial Black">
+<text x="0" y="50" font-size="40" fill="url(#g)" font-family="Arial Black">
 GROWTHLY
 </text>
 </svg>
