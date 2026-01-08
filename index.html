@@ -2,23 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Instagram Growth Hub</title>
+<title>Growthly – Premium Instagram Growth</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box}
 body{
 margin:0;
-font-family:Poppins,Arial;
-background:#0b0b12;
+font-family:'Poppins',Arial;
+background:#000;
 color:#fff;
 }
 
 img{max-width:100%}
 
+.gold{
+background:linear-gradient(135deg,#FFD700,#B8860B);
+-webkit-background-clip:text;
+color:transparent;
+}
+
 .nav{
-padding:20px 40px;
-background:#0b0b12;
+padding:22px 40px;
+background:#000;
+border-bottom:1px solid #222;
 }
 
 .hero{
@@ -27,76 +33,76 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:url("images/hero.svg") center/cover no-repeat;
+background:url("images/hero-gold.svg") center/cover no-repeat;
 }
 
-.hero h1{font-size:44px}
+.hero h1{font-size:48px}
 .hero p{opacity:.9}
 
 .section{
 max-width:1100px;
 margin:auto;
-padding:70px 20px;
+padding:80px 20px;
 }
 
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+gap:30px;
 }
 
 .card{
-background:#151522;
-padding:25px;
+background:#0b0b0b;
+padding:30px;
 border-radius:22px;
-box-shadow:0 0 25px rgba(255,0,200,.15);
+border:1px solid #FFD70030;
+box-shadow:0 0 40px rgba(255,215,0,.12);
 }
 
 .price{
 font-size:36px;
-color:#ff77ff;
 margin:10px 0;
 }
 
 .btn{
 width:100%;
-padding:14px;
+padding:15px;
 border:none;
 border-radius:30px;
-background:linear-gradient(135deg,#ff00cc,#3333ff);
-color:#fff;
-font-size:16px;
+background:linear-gradient(135deg,#FFD700,#B8860B);
+color:#000;
+font-weight:600;
 cursor:pointer;
 }
 
 input,select{
 width:100%;
-padding:14px;
+padding:15px;
 margin:10px 0;
 border-radius:14px;
-border:none;
-background:#1e1e2f;
+border:1px solid #333;
+background:#000;
 color:#fff;
 }
 
 .pay{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:30px;
+gap:35px;
 align-items:center;
 }
 
 .trust{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
+gap:30px;
 text-align:center;
 }
 
 .fade{
 opacity:0;
-transform:translateY(30px);
-transition:.8s;
+transform:translateY(40px);
+transition:1s;
 }
 
 .show{
@@ -107,7 +113,7 @@ transform:none;
 .footer{
 text-align:center;
 padding:25px;
-background:#08080c;
+border-top:1px solid #222;
 opacity:.7;
 }
 </style>
@@ -116,64 +122,64 @@ opacity:.7;
 <body>
 
 <div class="nav">
-<img src="images/logo.svg">
+<img src="images/logo-gold.svg">
 </div>
 
 <div class="hero">
 <div>
-<h1>Instagram Growth Made Simple 🚀</h1>
-<p>Real Skills • No Fake Followers • Affordable Prices 💯</p>
+<h1 class="gold">Grow Like a Brand 👑</h1>
+<p>Premium Instagram growth for serious creators</p>
 </div>
 </div>
 
 <div class="section fade">
-<h2>🔥 Our Plans</h2>
+<h2 class="gold">Premium Plans</h2>
 <div class="cards">
 
 <div class="card">
-<h3>Starter ⚡</h3>
-<div class="price">₹29</div>
-<p>Reel ideas + captions</p>
-<button class="btn" onclick="selectPlan('Starter ₹29')">Buy Now</button>
+<h3>Starter</h3>
+<div class="price gold">₹29</div>
+<p>Reel ideas + caption guidance</p>
+<button class="btn" onclick="pick('Starter ₹29')">Get Started</button>
 </div>
 
 <div class="card">
-<h3>Growth 📈</h3>
-<div class="price">₹99</div>
-<p>5 Reel ideas + growth strategy</p>
-<button class="btn" onclick="selectPlan('Growth ₹99')">Buy Now</button>
+<h3>Growth</h3>
+<div class="price gold">₹99</div>
+<p>Growth strategy + content ideas</p>
+<button class="btn" onclick="pick('Growth ₹99')">Boost Now</button>
 </div>
 
 <div class="card">
-<h3>Premium 👑</h3>
-<div class="price">₹999</div>
-<p>1 Month editing + full support</p>
-<button class="btn" onclick="selectPlan('Premium ₹999')">Buy Now</button>
+<h3>Elite</h3>
+<div class="price gold">₹999</div>
+<p>1 Month editing + personal support</p>
+<button class="btn" onclick="pick('Elite ₹999')">Go Elite</button>
 </div>
 
 </div>
 </div>
 
 <div class="section fade">
-<h2>💳 Payment (UPI)</h2>
+<h2 class="gold">Secure Payment</h2>
 <div class="pay">
 
 <div>
-<img src="images/qr.png" alt="QR Code">
-<p>Scan QR & pay, then submit UTR 👇</p>
+<img src="images/qr.svg">
+<p>Pay via UPI & submit UTR</p>
 </div>
 
 <div>
-<input id="name" placeholder="Your Name">
-<input id="insta" placeholder="Instagram ID">
+<input placeholder="Your Name">
+<input placeholder="Instagram ID">
 <select id="plan">
 <option>Select Plan</option>
 <option>Starter ₹29</option>
 <option>Growth ₹99</option>
-<option>Premium ₹999</option>
+<option>Elite ₹999</option>
 </select>
 <input id="utr" placeholder="UTR Number">
-<button class="btn" onclick="submitForm()">Submit</button>
+<button class="btn" onclick="done()">Submit</button>
 <p id="msg"></p>
 </div>
 
@@ -181,49 +187,30 @@ opacity:.7;
 </div>
 
 <div class="section fade">
-<h2>🛡️ Why Trust Us?</h2>
+<h2 class="gold">Why Trust Growthly?</h2>
 <div class="trust">
-<div>
-<img src="images/trust.svg">
-<p>100% Genuine Work</p>
-</div>
-<div>
-<img src="images/trust.svg">
-<p>No Bots / No Fake</p>
-</div>
-<div>
-<img src="images/trust.svg">
-<p>Creator Friendly Support</p>
-</div>
+<div><img src="images/trust-gold.svg"><p>No Fake Followers</p></div>
+<div><img src="images/trust-gold.svg"><p>Real Skills Only</p></div>
+<div><img src="images/trust-gold.svg"><p>Creator First</p></div>
 </div>
 </div>
 
 <div class="footer">
-© 2026 Instagram Growth Hub • Built with Skills 💪
+© 2026 Growthly • Premium Creator Growth
 </div>
 
 <script>
-const fades=document.querySelectorAll('.fade');
+const f=document.querySelectorAll('.fade');
 window.addEventListener('scroll',()=>{
-fades.forEach(f=>{
-if(f.getBoundingClientRect().top < window.innerHeight-100){
-f.classList.add('show');
-}
+f.forEach(e=>{
+if(e.getBoundingClientRect().top<window.innerHeight-120)
+e.classList.add('show');
 });
 });
-
-function selectPlan(p){
-document.getElementById("plan").value=p;
-}
-
-function submitForm(){
-if(utr.value.length < 6){
-msg.innerText="❌ Please enter valid details";
-msg.style.color="red";
-return;
-}
-msg.innerText="✅ Payment submitted! We will contact you soon.";
-msg.style.color="lightgreen";
+function pick(p){document.getElementById('plan').value=p;}
+function done(){
+msg.innerText="Payment submitted ✔ We will contact you.";
+msg.style.color="#FFD700";
 }
 </script>
 
