@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">
+<defs>
+<linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#ff00cc"></stop>
+<stop offset="100%" stop-color="#3333ff"></stop>
+</linearGradient>
+</defs>
+<rect width="1200" height="600" fill="url(#grad)"></rect>
+<text x="600" y="300" text-anchor="middle" font-size="64" fill="#ffffff" font-family="Arial Black">
+Grow on Instagram 🚀
+</text>
+</svg>
