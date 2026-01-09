@@ -1,280 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Growthly – Premium Instagram Growth</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-margin:0;
-font-family:'Poppins',Arial;
-background:#000;
-color:#fff;
-overflow-x:hidden;
-}
-img{max-width:100%}
-
-.gold{
-background:linear-gradient(135deg,#FFD700,#B8860B);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.nav{
-position:fixed;
-top:0;left:0;right:0;
-padding:18px 40px;
-background:rgba(0,0,0,.75);
-backdrop-filter:blur(10px);
-z-index:10;
-}
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-padding-top:120px;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-width:500px;height:500px;
-background:url("images/glow.svg") center/contain no-repeat;
-top:-120px;left:-120px;
-opacity:.6;
-}
-
-.section{
-max-width:1200px;
-margin:auto;
-padding:100px 20px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
-}
-
-.card{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,215,0,.3);
-border-radius:26px;
-padding:35px;
-backdrop-filter:blur(15px);
-box-shadow:0 0 60px rgba(255,215,0,.18);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-12px);
-box-shadow:0 0 90px rgba(255,215,0,.35);
-}
-
-.price{font-size:38px;margin:15px 0}
-
-.btn{
-display:inline-block;
-padding:15px 32px;
-border-radius:40px;
-background:linear-gradient(135deg,#FFD700,#B8860B);
-color:#000;
-font-weight:700;
-text-decoration:none;
-border:none;
-cursor:pointer;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-text-align:center;
-}
-
-.stat{font-size:40px;font-weight:800}
-
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s ease;
-}
-.show{opacity:1;transform:none}
-
-input,select{
-width:100%;
-padding:15px;
-margin:10px 0;
-border-radius:14px;
-border:1px solid #333;
-background:#000;
-color:#fff;
-}
-
-.pay-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:#000;
-padding:14px 22px;
-border-radius:40px;
-font-weight:800;
-text-decoration:none;
-box-shadow:0 0 25px #25D366;
-z-index:10;
-}
-
-.footer{
-padding:40px;
-text-align:center;
-border-top:1px solid #222;
-opacity:.7;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growthlyyy | Get Famous Faster</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#0b0b0b;color:#fff;overflow-x:hidden}
+    header{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:radial-gradient(circle,#1a1a1a,#000)}
+    header img{width:160px;height:160px;border-radius:50%;border:4px solid #ffcc00;margin-bottom:20px}
+    header h1{font-size:3rem;color:#ffcc00}
+    header p{max-width:600px;margin:15px auto;font-size:1.1rem;color:#ddd}
+    .cta{margin-top:20px}
+    .cta button{padding:14px 30px;margin:8px;border:none;border-radius:30px;font-size:1rem;font-weight:600;cursor:pointer;background:#ffcc00;color:#000}
+    section{padding:80px 8%}
+    .tagline{text-align:center;font-size:2rem;font-weight:700;color:#ffcc00;margin-bottom:50px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+    .card{background:#141414;padding:25px;border-radius:20px;box-shadow:0 0 30px rgba(255,204,0,0.1);transition:.3s}
+    .card:hover{transform:translateY(-8px)}
+    .card h3{color:#ffcc00;margin-bottom:10px}
+    .free{background:linear-gradient(135deg,#ffcc00,#ff9900);color:#000}
+    .pricing button{width:100%;margin-top:10px}
+    .hidden{display:none}
+    form{margin-top:20px}
+    input,select{width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none}
+    footer{text-align:center;padding:40px;background:#000;color:#888}
+  </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<div class="nav">
-<img src="images/logo-gold.svg">
-</div>
+<header>
+  <img src="WhatsApp Image 2026-01-09 at 14.16.12.jpeg" alt="Your Photo">
+  
+  <h1>Growthlyyy 🚀</h1>
+  <p>Views nahi aa rahe? Followers nahi badh rahe? Famous hona chahte ho? 🔥<br>Editing, Counselling aur Growth – sab ek jagah.</p>
+  <div class="cta">
+    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+    <button onclick="document.getElementById('free').scrollIntoView({behavior:'smooth'})">Free Offers</button>
+  </div>
+</header>
 
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp"
-href="https://wa.me/917027984783?text=Hi%20I%20want%20Instagram%20growth%20help"
-target="_blank">
-WhatsApp 💬
-</a>
-
-<!-- HERO -->
-<section class="hero fade">
-<div>
-<h1 class="gold">Grow Like a Brand 👑</h1>
-<p>Premium Instagram growth for serious creators</p><br>
-<a href="#plans" class="btn">View Plans</a>
-</div>
+<section id="free">
+  <div class="tagline">🎁 Free Interaction Offers</div>
+  <div class="cards">
+    <div class="card free">🔥 Free Profile Review</div>
+    <div class="card free">🎬 Free Editing Sample</div>
+    <div class="card free">📈 Free Growth Tips PDF</div>
+  </div>
 </section>
 
-<!-- STATS -->
-<section class="section fade">
-<div class="stats">
-<div><div class="stat gold">14.2K+</div><p>Followers</p></div>
-<div><div class="stat gold">500+</div><p>Creators Helped</p></div>
-<div><div class="stat gold">100%</div><p>Real Growth</p></div>
-</div>
+<section id="gallery">
+  <div class="tagline">📸 Real Results / Proof</div>
+  <div class="cards">
+    <div class="card"><img src="photo1.jpg" style="width:100%;border-radius:15px"><p>🔥 Before / After Growth</p></div>
+    <div class="card"><img src="photo2.jpg" style="width:100%;border-radius:15px"><p>🚀 Viral Reach Proof</p></div>
+    <div class="card"><img src="photo3.jpg" style="width:100%;border-radius:15px"><p>💯 Client Success</p></div>
+  </div>
 </section>
 
-<!-- PLANS -->
-<section id="plans" class="section fade">
-<h2 class="gold">Premium Plans</h2>
-<div class="cards">
-
-<div class="card">
-<h3>Starter</h3>
-<div class="price gold">₹29</div>
-<p>Reel ideas + caption guidance</p>
-<button class="btn" onclick="selectPlan('Starter ₹29')">Choose</button>
-</div>
-
-<div class="card">
-<h3>Growth</h3>
-<div class="price gold">₹99</div>
-<p>Growth strategy + content ideas</p>
-<button class="btn" onclick="selectPlan('Growth ₹99')">Choose</button>
-</div>
-
-<div class="card">
-<h3>Elite</h3>
-<div class="price gold">₹2999</div>
-<p>1 Month editing + personal support</p>
-<button class="btn" onclick="selectPlan('Elite ₹2999')">Choose</button>
-</div>
-
-</div>
+<section id="services">
+  <div class="tagline">💎 Premium Services</div>
+  <div class="cards">
+    <div class="card">
+      <h3>🎬 Editing</h3>
+      <p>Reels, Shorts, Cinematic edits jo viral ho.</p>
+    </div>
+    <div class="card">
+      <h3>🧠 Counselling</h3>
+      <p>Content strategy + mindset coaching.</p>
+    </div>
+    <div class="card">
+      <h3>📊 Views & Likes Boost</h3>
+      <p>🔥 Emoji | GIF | Engagement based system</p>
+    </div>
+  </div>
 </section>
 
-<!-- PAYMENT + FORM -->
-<section class="section fade">
-<h2 class="gold">Secure UPI Payment</h2>
+<section id="pricing">
+  <div class="tagline">💰 Choose Your Plan</div>
+  <div class="cards pricing">
+    <div class="card">
+      <h3>₹29 Starter</h3>
+      <button onclick="showPay(29)">Pay ₹29</button>
+    </div>
+    <div class="card">
+      <h3>₹99 Growth</h3>
+      <button onclick="showPay(99)">Pay ₹99</button>
+    </div>
+    <div class="card">
+      <h3>₹199 Pro</h3>
+      <button onclick="showPay(199)">Pay ₹199</button>
+    </div>
+  </div>
 
-<div class="pay-grid">
+  <div id="payment" class="hidden">
+    <h2 style="margin-top:40px;color:#ffcc00">Complete Payment</h2>
+    <p id="amountText"></p>
+    <img id="qr" src="qr.png" width="220" style="margin:20px auto;display:block">
 
-<div>
-<img src="images/qr.png" alt="QR Code">
-<p>Scan QR & pay, then fill the form 👇</p>
-</div>
-
-<div class="card">
-<input id="name" placeholder="Your Name">
-<input id="insta" placeholder="Instagram ID">
-<select id="plan">
-<option>Select Plan</option>
-<option>Starter ₹29</option>
-<option>Growth ₹99</option>
-<option>Elite ₹2999</option>
-</select>
-<input id="utr" placeholder="UTR Number">
-<button class="btn" onclick="submitForm()">Submit</button>
-<p id="msg"></p>
-</div>
-
-</div>
+    <form id="payForm" onsubmit="success(event)">
+      <input required placeholder="Your Name">
+      <input required placeholder="Instagram ID">
+      <input required placeholder="Transaction ID">
+      <button class="cta" type="submit">Submit</button>
+    </form>
+  </div>
 </section>
 
-<!-- TRUST -->
-<section class="section fade">
-<h2 class="gold">Why Trust Growthly?</h2>
-<div class="cards">
-<div class="card"><img src="images/trust-gold.svg"><p>No Fake Followers</p></div>
-<div class="card"><img src="images/trust-gold.svg"><p>Skill Based Growth</p></div>
-<div class="card"><img src="images/trust-gold.svg"><p>Creator First Support</p></div>
-</div>
+<section>
+  <div class="tagline">📊 Views | Likes | Emojis</div>
+  <p style="text-align:center;font-size:1.3rem">😍🔥🚀💯✨</p>
 </section>
 
-<div class="footer">
-© 2026 Growthly • Premium Instagram Growth
+<section id="reels">
+  <div class="tagline">🎥 Viral Reels Preview</div>
+  <div class="cards">
+    <div class="card"><video src="reel1.mp4" autoplay muted loop style="width:100%;border-radius:15px"></video></div>
+    <div class="card"><video src="reel2.mp4" autoplay muted loop style="width:100%;border-radius:15px"></video></div>
+    <div class="card"><video src="reel3.mp4" autoplay muted loop style="width:100%;border-radius:15px"></video></div>
+  </div>
+</section>
+
+<section id="hype">
+  <div class="tagline">🔥 Live Fame Zone</div>
+  <div class="cards">
+    <div class="card"><h3>👀 Live Views</h3><h1 id="views">12,450</h1></div>
+    <div class="card"><h3>❤️ Live Likes</h3><h1 id="likes">8,320</h1></div>
+    <div class="card"><h3>🚀 Followers Boosted</h3><h1 id="followers">5,980</h1></div>
+  </div>
+</section>
+
+<div id="popup" style="position:fixed;bottom:90px;left:20px;background:#141414;padding:15px 20px;border-radius:15px;box-shadow:0 0 20px rgba(255,204,0,.3);display:none;z-index:999">
+  💸 Someone just paid <b>₹29</b> 🔥
 </div>
+
+<a href="https://wa.me/919999999999" target="_blank" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 22px;border-radius:50px;font-weight:600;text-decoration:none;box-shadow:0 0 25px rgba(37,211,102,.6);z-index:999">💬 WhatsApp</a>
+
+<section id="urgency">
+  <div class="tagline">⏳ Limited Slots Available</div>
+  <h1 id="timer" style="text-align:center;font-size:3rem;color:#ff4444"></h1>
+</section>
+
+<section id="testimonials">
+  <div class="tagline">🏆 Real Client Words</div>
+  <div class="cards">
+    <div class="card">🔥 Bhai 3 din me reel viral – 50k views!</div>
+    <div class="card">🚀 Followers 1k se 10k in 15 days</div>
+    <div class="card">💯 Editing + counselling best hai</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Growthlyyy | Make Yourself Famous ✨</p>
+</footer>
 
 <script>
-const els=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-els.forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-120){
-el.classList.add('show');
-}
-});
-});
+  function showPay(amount){
+    document.getElementById('payment').classList.remove('hidden');
+    document.getElementById('amountText').innerText = 'Pay Only ₹' + amount;
+  }
 
-function selectPlan(p){
-document.getElementById("plan").value=p;
-window.location.hash="payment";
-}
+  function success(e){
+    e.preventDefault();
+    alert('Payment Successful! Course link sent on DM / Email');
+    document.getElementById('payForm').reset();
+    document.getElementById('payment').classList.add('hidden');
+  }
+  // LIVE COUNTERS
+  setInterval(()=>{
+    views.innerText = (+views.innerText.replace(/,/g,'') + Math.floor(Math.random()*10)).toLocaleString();
+    likes.innerText = (+likes.innerText.replace(/,/g,'') + Math.floor(Math.random()*6)).toLocaleString();
+    followers.innerText = (+followers.innerText.replace(/,/g,'') + Math.floor(Math.random()*4)).toLocaleString();
+  },1500);
 
-function submitForm(){
-if(utr.value.length<6){
-msg.innerText="❌ Please enter valid UTR";
-msg.style.color="red";
-return;
-}
-msg.innerText="✅ Payment submitted. We will contact you soon!";
-msg.style.color="#FFD700";
-}
+    // COUNTDOWN TIMER
+  let time=3600;
+  setInterval(()=>{
+    let m=Math.floor(time/60),s=time%60;
+    timer.innerText=`${m}m ${s}s`;
+    if(time>0) time--;
+  },1000);
+
+  // PAYMENT POPUP
+  setInterval(()=>{
+    const pop=document.getElementById('popup');
+    pop.style.display='block';
+    setTimeout(()=>pop.style.display='none',2500);
+  },9000);
+
 </script>
 
 </body>
