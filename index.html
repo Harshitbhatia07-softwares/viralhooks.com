@@ -1,181 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Growthlyyy | Get Famous Faster</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-    body{background:#0b0b0b;color:#fff;overflow-x:hidden}
-    header{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:radial-gradient(circle,#1a1a1a,#000)}
-    header img{width:160px;height:160px;border-radius:50%;border:4px solid #ffcc00;margin-bottom:20px}
-    header h1{font-size:3rem;color:#ffcc00}
-    header p{max-width:600px;margin:15px auto;font-size:1.1rem;color:#ddd}
-    .cta{margin-top:20px}
-    .cta button{padding:14px 30px;margin:8px;border:none;border-radius:30px;font-size:1rem;font-weight:600;cursor:pointer;background:#ffcc00;color:#000}
-    section{padding:80px 8%}
-    .tagline{text-align:center;font-size:2rem;font-weight:700;color:#ffcc00;margin-bottom:50px}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-    .card{background:#141414;padding:25px;border-radius:20px;box-shadow:0 0 30px rgba(255,204,0,0.1);transition:.3s}
-    .card:hover{transform:translateY(-8px)}
-    .card h3{color:#ffcc00;margin-bottom:10px}
-    .free{background:linear-gradient(135deg,#ffcc00,#ff9900);color:#000}
-    .pricing button{width:100%;margin-top:10px}
-    .hidden{display:none}
-    form{margin-top:20px}
-    input,select{width:100%;padding:12px;margin:8px 0;border-radius:10px;border:none}
-    footer{text-align:center;padding:40px;background:#000;color:#888}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growthlyyy – Ultimate Growth System</title>
+<meta name="description" content="Automated growth & payment system for social media services">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#05070a;color:#fff}
+section{padding:70px 20px}
+.container{max-width:1100px;margin:auto}
+.neon{color:#00ff99;text-shadow:0 0 10px #00ff99}
+header{background:#000;padding:15px;text-align:center;position:sticky;top:0;z-index:100}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#0f1218;padding:25px;border-radius:14px;box-shadow:0 0 25px rgba(0,255,153,.15)}
+.btn{margin-top:15px;padding:12px 20px;background:#00ff99;color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;width:100%}
+.stats h3{font-size:34px}
+form{max-width:420px;margin:auto;display:grid;gap:12px}
+input,textarea{background:#000;border:1px solid #222;padding:12px;border-radius:8px;color:#fff;width:100%;font-family:Arial}
+.wa{position:fixed;bottom:80px;right:20px;background:#25D366;color:#000;padding:14px 20px;border-radius:50px;font-weight:bold;z-index:97}
+.hidden{display:none}
+.bottom-bar{position:fixed;bottom:0;left:0;width:100%;background:#000;border-top:1px solid #00ff99;padding:12px;text-align:center;z-index:98}
+
+/* MOBILE */
+@media(max-width:640px){
+  section{padding:40px 15px}
+  .grid{grid-template-columns:1fr}
+  .card{padding:15px}
+  .stats h3{font-size:24px}
+  .neon{font-size:18px}
+  header h1{font-size:20px}
+  .wa{bottom:70px;right:15px;padding:10px 16px;font-size:12px}
+  .bottom-bar{padding:10px;font-size:12px}
+}
+
+/* TABLET */
+@media(min-width:641px) and (max-width:1024px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* DESKTOP */
+@media(min-width:1025px){
+  .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+}
+</style>
 </head>
 <body>
+<header><h1 class="neon">Growthlyyy</h1></header>
 
-<header>
-  <img src="WhatsApp Image 2026-01-09 at 14.16.12.jpeg" alt="Your Photo">
-  
-  <h1>Growthlyyy 🚀</h1>
-  <p>Views nahi aa rahe? Followers nahi badh rahe? Famous hona chahte ho? 🔥<br>Editing, Counselling aur Growth – sab ek jagah.</p>
-  <div class="cta">
-    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
-    <button onclick="document.getElementById('free').scrollIntoView({behavior:'smooth'})">Free Offers</button>
-  </div>
-</header>
-
-<section id="free">
-  <div class="tagline">🎁 Free Interaction Offers</div>
-  <div class="cards">
-    <div class="card free">🔥 Free Profile Review</div>
-    <div class="card free">🎬 Free Editing Sample</div>
-    <div class="card free">📈 Free Growth Tips PDF</div>
-  </div>
+<section class="container">
+<h2 class="neon">Followers & Views nahi aa rahe?</h2>
+<p>Fully automated growth & payment system 🚀</p>
 </section>
 
-
-
-<section id="services">
-  <div class="tagline">💎 Premium Services</div>
-  <div class="cards">
-    <div class="card">
-      <h3>🎬 Editing</h3>
-      <p>Reels, Shorts, Cinematic edits jo viral ho.</p>
-    </div>
-    <div class="card">
-      <h3>🧠 Counselling</h3>
-      <p>Content strategy + mindset coaching.</p>
-    </div>
-    <div class="card">
-      <h3>📊 Views & Likes Boost</h3>
-      <p>🔥 Emoji | GIF | Engagement based system</p>
-    </div>
-  </div>
+<section class="container">
+<h2 class="neon">🔥 Premium Plans <span style="font-size:14px;color:#ff5555">⏰ Offer ends in <span id="timer">10:00</span></span></h2>
+<div class="grid">
+<div class="card">
+  <h3>Starter</h3>
+  <p><del style="color:#777">₹99</del> <span class="neon">₹29</span></p>
+  <small>✔ Shadowban remove ka proper guide<br>✔ Viral hone ke exact steps<br>✔ Algorithm secrets<br>✔ Growth roadmap</small>
+  <button class="btn" onclick="pay(29,'Starter')">Pay ₹29</button>
+</div>
+<div class="card" style="border:2px solid #00ff99;position:relative">
+  <div style="position:absolute;top:-10px;right:-10px;background:#00ff99;color:#000;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:bold">POPULAR</div>
+  <h3>Basic</h3>
+  <p><del style="color:#777">₹199</del> <span class="neon">₹99</span></p>
+  <small>✔ Personal account review<br>✔ Niche-based tips<br>✔ Content suggestions<br>✔ DM support</small>
+  <button class="btn" onclick="pay(99,'Basic')">Pay ₹99</button>
+</div>
+<div class="card">
+  <h3>Pro</h3>
+  <p><del style="color:#777">₹399</del> <span class="neon">₹199</span></p>
+  <small>✔ Get more followers<br>✔ CTA techniques<br>✔ Reel hooks<br>✔ Caption optimization</small>
+  <button class="btn" onclick="pay(199,'Pro')">Pay ₹199</button>
+</div>
+<div class="card">
+  <h3>Ultimate</h3>
+  <p><del style="color:#777">₹699</del> <span class="neon">₹399</span></p>
+  <small>✔ 5 videos editing<br>✔ Hashtag research<br>✔ Story ideas<br>✔ Priority support</small>
+  <button class="btn" onclick="pay(399,'Ultimate')">Pay ₹399</button>
+</div>
+</div>
 </section>
 
-<section id="pricing">
-  <div class="tagline">💰 Choose Your Plan</div>
-  <div class="cards pricing">
-    <div class="card">
-      <h3>₹29 Starter</h3>
-      <button onclick="showPay(29)">Pay ₹29</button>
-    </div>
-    <div class="card">
-      <h3>₹99 Growth</h3>
-      <button onclick="showPay(99)">Pay ₹99</button>
-    </div>
-    <div class="card">
-      <h3>₹199 Pro</h3>
-      <button onclick="showPay(199)">Pay ₹399</button>
-    </div>
-  </div>
-
-  <div id="payment" class="hidden">
-    <h2 style="margin-top:40px;color:#ffcc00">Complete Payment</h2>
-    <p id="amountText"></p>
-    <img id="qr" src="qr.png" width="220" style="margin:20px auto;display:block">
-
-    <form id="payForm" onsubmit="success(event)">
-      <input required placeholder="Your Name">
-      <input required placeholder="Instagram ID">
-      <input required placeholder="Transaction ID">
-      <button class="cta" type="submit">Submit</button>
-    </form>
-  </div>
-</section>
-
-<section>
-  <div class="tagline">📊 Views | Likes | Emojis</div>
-  <p style="text-align:center;font-size:1.3rem">😍🔥🚀💯✨</p>
-</section>
-
-
-
-<section id="hype">
-  <div class="tagline">🔥 Live Fame Zone</div>
-  <div class="cards">
-    <div class="card"><h3>👀 Live Views</h3><h1 id="views">12,450</h1></div>
-    <div class="card"><h3>❤️ Live Likes</h3><h1 id="likes">8,320</h1></div>
-    <div class="card"><h3>🚀 Followers Boosted</h3><h1 id="followers">5,980</h1></div>
-  </div>
-</section>
-
-<div id="popup" style="position:fixed;bottom:90px;left:20px;background:#141414;padding:15px 20px;border-radius:15px;box-shadow:0 0 20px rgba(255,204,0,.3);display:none;z-index:999">
-  💸 Someone just paid <b>₹29</b> 🔥
+<div id="fakePopup" style="position:fixed;bottom:90px;left:20px;background:#0f1218;border:1px solid #00ff99;padding:14px 18px;border-radius:10px;box-shadow:0 0 20px rgba(0,255,153,.25);display:none;z-index:99">
+  <strong style="color:#00ff99">Payment Received ✅</strong><br>
+  <span id="fakeText" style="font-size:14px;color:#ccc"></span>
 </div>
 
-<a href="https://wa.me/917027984783" target="_blank" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 22px;border-radius:50px;font-weight:600;text-decoration:none;box-shadow:0 0 25px rgba(37,211,102,.6);z-index:999">💬 WhatsApp</a>
-
-<section id="urgency">
-  <div class="tagline">⏳ Limited Slots Available</div>
-  <h1 id="timer" style="text-align:center;font-size:3rem;color:#ff4444"></h1>
+<section class="container stats">
+<div class="grid">
+<div><h3 id="views">12000</h3><p>Views</p></div>
+<div><h3 id="likes">8300</h3><p>Likes</p></div>
+<div><h3 id="followers">1200</h3><p>Followers</p></div>
+</div>
 </section>
 
-<section id="testimonials">
-  <div class="tagline">🏆 Real Client Words</div>
-  <div class="cards">
-    <div class="card">🔥 Bhai 3 din me reel viral – 50k views!</div>
-    <div class="card">🚀 Followers 1k se 10k in 15 days</div>
-    <div class="card">💯 Editing + counselling best hai</div>
-  </div>
+<section id="thanks" class="container hidden">
+<h2 class="neon">Payment Successful 🎉</h2>
+<p>Your order is received. We will contact you shortly.</p>
 </section>
 
-<footer>
-  <p>© 2026 Growthlyyy | Make Yourself Famous ✨</p>
-</footer>
+<section class="container">
+<h2 class="neon">Send Details</h2>
+<form onsubmit="sendWA();return false;">
+<input id="name" placeholder="Your Name" required>
+<input id="insta" placeholder="Instagram Username" required>
+<textarea id="extra" placeholder="Any note"></textarea>
+<button class="btn">Send WhatsApp</button>
+</form>
+</section>
+
+<div class="bottom-bar">🔥 Limited Offer: <span class="neon">Get Started at ₹29</span> <button class="btn" style="margin-left:10px;width:auto;padding:8px 15px;display:inline" onclick="pay(29,'Starter')">Pay Now</button></div>
+
+<footer style="text-align:center;color:#777;padding:30px">© 2026 Growthlyyy</footer>
+<a class="wa" href="https://wa.me/917027984783" target="_blank">WhatsApp</a>
 
 <script>
-  function showPay(amount){
-    document.getElementById('payment').classList.remove('hidden');
-    document.getElementById('amountText').innerText = 'Pay Only ₹' + amount;
-  }
-
-  function success(e){
-    e.preventDefault();
-    alert('Payment Successful! Course link sent on DM / Email');
-    document.getElementById('payForm').reset();
-    document.getElementById('payment').classList.add('hidden');
-  }
-  // LIVE COUNTERS
-  setInterval(()=>{
-    views.innerText = (+views.innerText.replace(/,/g,'') + Math.floor(Math.random()*10)).toLocaleString();
-    likes.innerText = (+likes.innerText.replace(/,/g,'') + Math.floor(Math.random()*6)).toLocaleString();
-    followers.innerText = (+followers.innerText.replace(/,/g,'') + Math.floor(Math.random()*4)).toLocaleString();
-  },1500);
-
-    // COUNTDOWN TIMER
-  let time=3600;
-  setInterval(()=>{
-    let m=Math.floor(time/60),s=time%60;
-    timer.innerText=`${m}m ${s}s`;
-    if(time>0) time--;
-  },1000);
-
-  // PAYMENT POPUP
-  setInterval(()=>{
-    const pop=document.getElementById('popup');
-    pop.style.display='block';
-    setTimeout(()=>pop.style.display='none',2500);
-  },9000);
-
+let currentPlan='';let currentAmount=0;
+function pay(amount,plan){currentPlan=plan;currentAmount=amount;var options={key:'RAZORPAY_KEY_HERE',amount:amount*100,currency:'INR',name:'Growthlyyy',description:plan+' Plan',handler:function(response){document.getElementById('thanks').classList.remove('hidden');autoAdminWA()}};new Razorpay(options).open()}
+function autoAdminWA(){let msg=`New Payment:%0APlan: ${currentPlan}%0AAmount: ₹${currentAmount}`;window.open(`https://wa.me/910000000000?text=${msg}`,'_blank')}
+function sendWA(){let n=document.getElementById('name').value;let i=document.getElementById('insta').value;let e=document.getElementById('extra').value;let msg=`Client Details:%0AName: ${n}%0AInsta: ${i}%0APlan: ${currentPlan}%0A${e}`;window.open(`https://wa.me/910000000000?text=${msg}`,'_blank')}
+setInterval(()=>{document.getElementById('views').innerText++;document.getElementById('likes').innerText++;document.getElementById('followers').innerText++;},2000);
+let time=600;setInterval(()=>{if(time>0){time--;}let m=Math.floor(time/60);let s=time%60;document.getElementById('timer').innerText=`${m}:${s.toString().padStart(2,'0')}`;},1000);
+const names=['Rahul','Aman','Sneha','Pooja','Karan','Rohit','Neha'];const plans=['Starter ₹29','Basic ₹99','Pro ₹199','Ultimate ₹399'];setInterval(()=>{const popup=document.getElementById('fakePopup');const text=document.getElementById('fakeText');const name=names[Math.floor(Math.random()*names.length)];const plan=plans[Math.floor(Math.random()*plans.length)];text.innerText=`${name} just purchased ${plan}`;popup.style.display='block';setTimeout(()=>popup.style.display='none',4000)},8000);
 </script>
-
 </body>
 </html>
