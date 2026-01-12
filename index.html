@@ -1,131 +1,277 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Growthlyyy – Ultimate Growth System</title>
-<meta name="description" content="Automated growth & payment system for social media services">
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#05070a;color:#fff}
-section{padding:70px 20px}
-.container{max-width:1100px;margin:auto}
-.neon{color:#00ff99;text-shadow:0 0 10px #00ff99}
-header{background:#000;padding:15px;text-align:center;position:sticky;top:0;z-index:100}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#0f1218;padding:25px;border-radius:14px;box-shadow:0 0 25px rgba(0,255,153,.15)}
-.btn{margin-top:15px;padding:12px 20px;background:#00ff99;color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;width:100%}
-.stats h3{font-size:34px}
-form{max-width:420px;margin:auto;display:grid;gap:12px}
-input,textarea{background:#000;border:1px solid #222;padding:12px;border-radius:8px;color:#fff;width:100%;font-family:Arial}
-.wa{position:fixed;bottom:80px;right:20px;background:#25D366;color:#000;padding:14px 20px;border-radius:50px;font-weight:bold;z-index:97}
-.hidden{display:none}
-.bottom-bar{position:fixed;bottom:0;left:0;width:100%;background:#000;border-top:1px solid #00ff99;padding:12px;text-align:center;z-index:98}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Growthlyyy — Grow Your Social Presence</title>
+  <meta name="description" content="Growthlyyy helps creators and brands grow followers, engagement and reach with proven strategies." />
 
-/* MOBILE */
-@media(max-width:640px){
-  section{padding:40px 15px}
-  .grid{grid-template-columns:1fr}
-  .card{padding:15px}
-  .stats h3{font-size:24px}
-  .neon{font-size:18px}
-  header h1{font-size:20px}
-  .wa{bottom:70px;right:15px;padding:10px 16px;font-size:12px}
-  .bottom-bar{padding:10px;font-size:12px}
+  <style>
+    :root{
+      --accent:#00ff9c;
+      --bg:#060b14;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#040814,#071427);color:#eef5ff;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:rgba(4,8,20,.6);border-bottom:1px solid rgba(255,255,255,.04)}
+    .nav{max-width:1100px;margin:auto;display:flex;align-items:center;gap:16px;padding:14px 18px}
+    .logo{font-weight:800;letter-spacing:.5px;color:var(--accent)}
+    nav{margin-left:auto}
+    nav a{margin-left:14px;color:var(--muted)}
+    nav a:hover{color:#fff}
+
+    .container{max-width:1100px;margin:auto;padding:0 18px}
+
+    /* Hero */
+    .hero{padding:70px 0;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+    .hero h1{font-size:clamp(1.8rem,4vw,3rem);margin:0}
+    .hero p{color:var(--muted);margin:14px 0 22px}
+    .btn{display:inline-block;padding:12px 20px;border-radius:12px;background:var(--accent);color:#04110a;font-weight:600}
+    .btn.alt{background:transparent;border:1px solid rgba(255,255,255,.08);color:#fff}
+
+    .hero-card{background:radial-gradient(circle at top,rgba(0,255,156,.15),transparent 60%),var(--card);padding:26px;border-radius:20px;border:1px solid rgba(255,255,255,.04)}
+
+    section{padding:60px 0}
+    section h2{text-align:center;margin:0 0 14px;font-size:1.4rem}
+    section p.sub{text-align:center;color:var(--muted);max-width:700px;margin:0 auto 40px}
+
+    /* Features */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.04)}
+    .card h3{margin:0 0 8px}
+    .card p{margin:0;color:var(--muted);font-size:.95rem}
+
+    /* Pricing */
+    .price{font-size:2rem;font-weight:800;margin:10px 0}
+    .card ul{padding-left:18px;color:var(--muted)}
+    .card li{margin-bottom:6px}
+
+    /* Steps */
+    .steps{counter-reset:step}
+    .step{position:relative;padding-left:44px}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#04110a;display:grid;place-items:center;font-weight:700}
+
+    /* Testimonials */
+    .quote{font-size:.95rem;color:var(--muted)}
+
+    /* CTA */
+    .cta{background:linear-gradient(90deg,#00ff9c,#00c6ff);color:#04110a;text-align:center;padding:60px 20px;border-radius:22px}
+
+    footer{padding:40px 0;color:var(--muted);text-align:center}
+
+    @media(max-width:768px){
+  header h1{font-size:1.8rem}
+  section{padding:60px 16px}
+  .price{font-size:2rem}
+  .pay-box{width:90%}
 }
 
-/* TABLET */
-@media(min-width:641px) and (max-width:1024px){
-  .grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:480px){
+  header h1{font-size:1.5rem}
+  .btn{width:100%}
 }
 
-/* DESKTOP */
-@media(min-width:1025px){
-  .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-}
-</style>
+@media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+  
+    /* Pay Modal */
+    .pay-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:200}
+    .pay-modal.show{display:flex}
+    .pay-box{background:var(--card);padding:24px;border-radius:18px;text-align:center;max-width:320px;width:100%;border:1px solid rgba(255,255,255,.06)}
+    .pay-box img{width:220px;border-radius:12px;margin:14px 0}
+    .pay-box h3{margin:0}
+    .pay-box p{color:var(--muted);font-size:.9rem}
+  
+    /* Animations & Badges */
+    .badge{display:inline-block;background:linear-gradient(90deg,#ffb703,#ff006e);color:#04110a;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:700;margin-bottom:6px}
+    .pulse{animation:pulse 1.6s infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+
+    /* Trust */
+    .trust{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+    .trust div{background:var(--card);padding:14px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.05);font-size:.9rem}
+
+    /* Fullscreen QR */
+    .pay-box{max-width:360px}
+    .pay-box img{width:260px}
+  </style>
 </head>
 <body>
-<header><h1 class="neon">Growthlyyy</h1></header>
 
-<section class="container">
-<h2 class="neon">Followers & Views nahi aa rahe?</h2>
-<p>Fully automated growth & payment system 🚀</p>
-</section>
+<header>
+  <div class="nav">
+    <div class="logo">GROWTHLYYY</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#work">How it works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<section class="container">
-<h2 class="neon">🔥 Premium Plans <span style="font-size:14px;color:#ff5555">⏰ Offer ends in <span id="timer">10:00</span></span></h2>
-<div class="grid">
-<div class="card">
-  <h3>Starter</h3>
-  <p><del style="color:#777">₹99</del> <span class="neon">₹29</span></p>
-  <small>✔ Shadowban remove ka proper guide<br>✔ Viral hone ke exact steps<br>✔ Algorithm secrets<br>✔ Growth roadmap</small>
-  <button class="btn" onclick="pay(29,'Starter')">Pay ₹29</button>
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Grow Your Followers, Reach & Engagement</h1>
+      <p>Growthlyyy helps creators, influencers and brands grow faster with data‑driven and organic strategies.</p>
+      <a class="btn" href="#contact">Get Started</a>
+      <a class="btn alt" href="#pricing" style="margin-left:10px">View Pricing</a>
+    </div>
+    <div class="hero-card">
+      <h3>Why Growthlyyy?</h3>
+      <p class="quote">“Consistent growth, real engagement and no fake followers.”</p>
+    </div>
+  </section>
+
+  
+  <!-- REELS GROWTH STRATEGY -->
+  <section id="reels">
+    <h2>How to Go Viral on Instagram Reels 🚀</h2>
+    <p class="sub">Proven techniques we use to increase reach, watch time and engagement.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🚀 First 3 Seconds Hook</h3>
+        <p>Start with a scroll‑stopping moment: bold text, fast action or a strong question.</p>
+        <p class="quote">Example: “Still getting 0 views? Watch this 👇”</p>
+        <p>Strong hooks increase watch time — and watch time boosts reach.</p>
+      </div>
+
+      <div class="card">
+        <h3>🕐 Perfect Timing</h3>
+        <p>Post when your audience is most active:</p>
+        <ul>
+          <li>Morning: <strong>9–11 AM</strong></li>
+          <li>Evening: <strong>6–9 PM</strong></li>
+        </ul>
+        <p>Use <strong>Insights → Audience → Most Active Times</strong>.</p>
+        <p>Consistent timing = higher engagement.</p>
+      </div>
+
+      <div class="card">
+        <h3>🎵 Use Viral Audio</h3>
+        <p>Choose trending sounds with the ⬆️ arrow icon.</p>
+        <p>Recreate trends with your own twist — Instagram promotes trending audio heavily.</p>
+        <p>Keep music and voice volume balanced.</p>
+      </div>
+
+      <div class="card">
+        <h3>✂️ Edit Like a Pro</h3>
+        <p>Fast cuts + smooth transitions (CapCut templates work great).</p>
+        <p>Add captions, emojis and beat‑matched text effects.</p>
+        <p>Use a loop effect (same start & end frame) to increase repeat views.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔥 Engage in First Hour</h3>
+        <p>Reply to every comment quickly.</p>
+        <p>Like + pin comments to boost activity.</p>
+        <p>Share your reel to stories, DMs and relevant hashtags.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <h2>Our Packages</h2>
+    <p class="sub">Choose one plan & pay instantly</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Starter</h3>
+        <div class="price">₹29</div>
+        <p>Best for testing</p>
+        <button class="btn" onclick="openPay('₹29')">Pay Now</button>
+      </div>
+      <div class="card">
+        <h3>Growth</h3>
+        <div class="price">₹49</div>
+        <p>Small boost</p>
+        <button class="btn" onclick="openPay('₹49')">Pay Now</button>
+      </div>
+      <div class="card pulse" style="outline:2px solid var(--accent)">
+        <span class="badge">MOST POPULAR</span>
+        <h3>Pro</h3>
+        <div class="price">₹99</div>
+        <p>Best results</p>
+        <button class="btn" onclick="openPay('₹99')">Pay Now</button>
+      </div>
+      <div class="card">
+        <h3>Elite</h3>
+        <div class="price">₹299</div>
+        <p>Maximum reach</p>
+        <button class="btn" onclick="openPay('₹299')">Pay Now</button>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- HOW IT WORKS -->
+  <section id="work">
+    <h2>How It Works</h2>
+    <p class="sub">Simple, fast & transparent.</p>
+    <div class="grid steps">
+      <div class="card step"><h3>Select Plan</h3><p>Choose any one plan from above</p></div>
+      <div class="card step"><h3>Pay via QR</h3><p>Secure UPI payment</p></div>
+      <div class="card step"><h3>Send Screenshot</h3><p>Instant WhatsApp confirmation</p></div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="trust">
+    <h2>Why Trust Growthlyyy?</h2>
+    <p class="sub">Real results. Real creators.</p>
+    <div class="trust">
+      <div>✅ 100% Organic Growth</div>
+      <div>⚡ Fast Delivery</div>
+      <div>🔒 Safe & Secure</div>
+      <div>💬 WhatsApp Support</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Ready to Grow?</h2>
+    <p>Choose a plan above and complete payment via QR.</p>
+    <a class="btn alt" href="#pricing">View Pricing</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Growthlyyy • All rights reserved
+</footer>
+
+<!-- PAY MODAL -->
+<div class="pay-modal" id="payModal">
+  <div class="pay-box">
+    <h3 id="payAmount">Pay Now</h3>
+    <p>Scan the QR to complete payment</p>
+    <!-- REPLACE src WITH YOUR QR IMAGE -->
+    <img src="qr.png" alt="QR Code" />
+    <p>After payment, send screenshot on WhatsApp</p>
+    <a class="btn" href="https://wa.me/917027984783?text=Hi%20I%20have%20completed%20the%20payment" target="_blank">Send Screenshot</a>
+    <button class="btn alt" onclick="closePay()">Close</button>
+  </div>
 </div>
-<div class="card" style="border:2px solid #00ff99;position:relative">
-  <div style="position:absolute;top:-10px;right:-10px;background:#00ff99;color:#000;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:bold">POPULAR</div>
-  <h3>Basic</h3>
-  <p><del style="color:#777">₹199</del> <span class="neon">₹99</span></p>
-  <small>✔ Personal account review<br>✔ Niche-based tips<br>✔ Content suggestions<br>✔ DM support</small>
-  <button class="btn" onclick="pay(99,'Basic')">Pay ₹99</button>
-</div>
-<div class="card">
-  <h3>Pro</h3>
-  <p><del style="color:#777">₹399</del> <span class="neon">₹199</span></p>
-  <small>✔ Get more followers<br>✔ CTA techniques<br>✔ Reel hooks<br>✔ Caption optimization</small>
-  <button class="btn" onclick="pay(199,'Pro')">Pay ₹199</button>
-</div>
-<div class="card">
-  <h3>Ultimate</h3>
-  <p><del style="color:#777">₹699</del> <span class="neon">₹399</span></p>
-  <small>✔ 5 videos editing<br>✔ Hashtag research<br>✔ Story ideas<br>✔ Priority support</small>
-  <button class="btn" onclick="pay(399,'Ultimate')">Pay ₹399</button>
-</div>
-</div>
-</section>
-
-<div id="fakePopup" style="position:fixed;bottom:90px;left:20px;background:#0f1218;border:1px solid #00ff99;padding:14px 18px;border-radius:10px;box-shadow:0 0 20px rgba(0,255,153,.25);display:none;z-index:99">
-  <strong style="color:#00ff99">Payment Received ✅</strong><br>
-  <span id="fakeText" style="font-size:14px;color:#ccc"></span>
-</div>
-
-<section class="container stats">
-<div class="grid">
-<div><h3 id="views">12000</h3><p>Views</p></div>
-<div><h3 id="likes">8300</h3><p>Likes</p></div>
-<div><h3 id="followers">1200</h3><p>Followers</p></div>
-</div>
-</section>
-
-<section id="thanks" class="container hidden">
-<h2 class="neon">Payment Successful 🎉</h2>
-<p>Your order is received. We will contact you shortly.</p>
-</section>
-
-<section class="container">
-<h2 class="neon">Send Details</h2>
-<form onsubmit="sendWA();return false;">
-<input id="name" placeholder="Your Name" required>
-<input id="insta" placeholder="Instagram Username" required>
-<textarea id="extra" placeholder="Any note"></textarea>
-<button class="btn">Send WhatsApp</button>
-</form>
-</section>
-
-<div class="bottom-bar">🔥 Limited Offer: <span class="neon">Get Started at ₹29</span> <button class="btn" style="margin-left:10px;width:auto;padding:8px 15px;display:inline" onclick="pay(29,'Starter')">Pay Now</button></div>
-
-<footer style="text-align:center;color:#777;padding:30px">© 2026 Growthlyyy</footer>
-<a class="wa" href="https://wa.me/917027984783" target="_blank">WhatsApp</a>
 
 <script>
-let currentPlan='';let currentAmount=0;
-function pay(amount,plan){currentPlan=plan;currentAmount=amount;var options={key:'RAZORPAY_KEY_HERE',amount:amount*100,currency:'INR',name:'Growthlyyy',description:plan+' Plan',handler:function(response){document.getElementById('thanks').classList.remove('hidden');autoAdminWA()}};new Razorpay(options).open()}
-function autoAdminWA(){let msg=`New Payment:%0APlan: ${currentPlan}%0AAmount: ₹${currentAmount}`;window.open(`https://wa.me/910000000000?text=${msg}`,'_blank')}
-function sendWA(){let n=document.getElementById('name').value;let i=document.getElementById('insta').value;let e=document.getElementById('extra').value;let msg=`Client Details:%0AName: ${n}%0AInsta: ${i}%0APlan: ${currentPlan}%0A${e}`;window.open(`https://wa.me/910000000000?text=${msg}`,'_blank')}
-setInterval(()=>{document.getElementById('views').innerText++;document.getElementById('likes').innerText++;document.getElementById('followers').innerText++;},2000);
-let time=600;setInterval(()=>{if(time>0){time--;}let m=Math.floor(time/60);let s=time%60;document.getElementById('timer').innerText=`${m}:${s.toString().padStart(2,'0')}`;},1000);
-const names=['Rahul','Aman','Sneha','Pooja','Karan','Rohit','Neha'];const plans=['Starter ₹29','Basic ₹99','Pro ₹199','Ultimate ₹399'];setInterval(()=>{const popup=document.getElementById('fakePopup');const text=document.getElementById('fakeText');const name=names[Math.floor(Math.random()*names.length)];const plan=plans[Math.floor(Math.random()*plans.length)];text.innerText=`${name} just purchased ${plan}`;popup.style.display='block';setTimeout(()=>popup.style.display='none',4000)},8000);
+  function openPay(amount){
+    document.getElementById('payAmount').innerText = 'Pay ' + amount;
+    document.getElementById('payModal').classList.add('show');
+  }
+  function closePay(){
+    document.getElementById('payModal').classList.remove('show');
+  }
 </script>
+
 </body>
 </html>
